@@ -22,7 +22,7 @@ From the pom.xml, you can swap out the Apache Derby dependency for a MySQL or DB
 
 * `mvn clean package -Dboost.http.port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
 
-From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the "boost.runtime" dependency:
+From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the "boost.runtimes" dependency:
 
 openliberty -> tomee 
 
@@ -38,5 +38,5 @@ After you start the application, you can access the following microservices:
 
 * The http://localhost:9080/inventory/systems/localhost microservice is the `inventory` service that invokes the http://localhost:9080/system/properties microservice to retrieves the system property information.
 
-* The http://localhost:9080/inventory/systems/{your_hostname} microservice is the `inventory` service that invokes the \http://{your_hostname}:9080/system/properties microservice. In Windows, Mac OS, and Linux, get your fully qualified domain name (FQDN) by entering `hostname` from your terminal. Visit the URL by replacing `{your_hostname}` with your FQDN.
+* The http://localhost:9080/inventory/systems/{your_hostname} microservice is the `inventory` service that invokes the http://{your_hostname}:9080/system/properties microservice. In Windows, Mac OS, and Linux, get your fully qualified domain name (FQDN) by entering `hostname` from your terminal. Visit the URL by replacing `{your_hostname}` with your FQDN.
 You will see the same system property information, but the process of getting the information is different.

@@ -2,6 +2,14 @@
 
 This is a basic walkthrough of how to use the Boost Maven Plugin to package an existing J2EE or Microprofile application into a Liberty executable jar.
 
+### Build the Boost plugin
+
+Because the Boost plugin does not have a currently released (even a snapshot) version reflecting this content, you must build the plugin yourself locally in order to use it to build this sample application.
+
+1. `git clone git@github.com:OpenLiberty/boost.git`
+1. `boost-maven.sh`
+
+
 ### Create an Application project
 
 To get started, you will first need a basic J2EE or Microprofile application. You can clone the following project as an instructional guide:

@@ -8,7 +8,7 @@ Because the Boost plugin does not have a currently released (even a snapshot) ve
 
 To build the plugin from its current location, as a "proposal" within the MicroProfile sandbox repository, use these instructions:
 
-1. `git clone git@github.com:eclipse/microprofile-sandbox.git`
+1. `git clone -b sandbox git@github.com:chyt/microprofile-sandbox.git`
 1. `cd proposals/boost`
 1. `./boost-maven.sh`
 
@@ -26,15 +26,21 @@ The application project's pom.xml has been configured to use the boost plugin an
 
 Run the Maven package command as you normally would when building a Java EE or MicroProfile Application:
 
-* `mvn clean package -Dboost.http.port=9000`
+* `mvn clean package -Dboost.http.port=9080`
 
 From the pom.xml, you can swap out the Apache Derby dependency for a MySQL or DB2 dependency and pass in the JDBC url, username and password. For example:
 
-* `mvn clean package -Dboost.http.port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
+* `mvn clean package -Dboost.http.port=9080 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
 
 From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the **boost.runtimes** dependency:
 
-openliberty -> tomee 
+    <dependency>
+        <groupId>boost.runtimes</groupId>
+        <artifactId>tomee</artifactId>
+        <!-- Replaced 'openliberty' with 'tomee'
+            <artifactId>openliberty</artifactId>
+        -->			
+    </dependency>
 
 ### Run the Application
 
@@ -48,5 +54,7 @@ After you start the application, you can access the following microservices:
 
 * The http://localhost:9080/inventory/systems/localhost microservice is the `inventory` service that invokes the http://localhost:9080/system/properties microservice to retrieves the system property information.
 
-* The http://localhost:9080/inventory/systems/{your_hostname} microservice is the `inventory` service that invokes the `http://{your_hostname}:9080/system/properties` microservice. In Windows, Mac OS, and Linux, get your fully qualified domain name (FQDN) by entering `hostname` from your terminal. Visit the URL by replacing `{your_hostname}` with your FQDN.
+* The http://localhost:9080/inventory/systems/{your_hostname} URL also uses the `inventory` service that invokes the `http://{your_hostname}:9080/system/properties` microservice. In Windows, Mac OS, and Linux, get your fully qualified domain name (FQDN) by entering `hostname` from your terminal. Visit the URL by replacing `{your_hostname}` with your FQDN.
 You will see the same system property information, but the process of getting the information is different.
+
+* The http://localhost:9080/inventory/systems/ URL uses the `inventory` service and returns the system property info of all hosts previously queried (the info is cached).

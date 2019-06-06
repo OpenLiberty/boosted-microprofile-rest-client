@@ -8,7 +8,7 @@ Because the Boost plugin does not have a currently released (even a snapshot) ve
 
 To build the plugin from its current location, as a "proposal" within the MicroProfile sandbox repository, use these instructions:
 
-1. `git clone -b sandbox git@github.com:chyt/microprofile-sandbox.git`
+1. `git clone git@github.com:eclipse/microprofile-sandbox.git`
 1. `cd proposals/boost`
 1. `./boost-maven.sh`
 

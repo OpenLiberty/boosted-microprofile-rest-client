@@ -2,16 +2,6 @@
 
 This is a basic walkthrough of how to use the Boost Maven Plugin to package an existing Java EE or Microprofile application into a Liberty executable jar.
 
-### Build the Boost plugin
-
-Because the Boost plugin does not have a currently released (even a snapshot) version reflecting this content, you must build the plugin yourself locally in order to use it to build this sample application.
-
-To build the plugin from its current location, as a "proposal" within the MicroProfile sandbox repository, use these instructions:
-
-1. `git clone git@github.com:eclipse/microprofile-sandbox.git`
-1. `cd proposals/boost`
-1. `./boost-maven.sh`
-
 ### Create an Application project
 
 To get started, you will first need a basic Java EE or Microprofile application. You can clone the following project as an instructional guide:
@@ -26,16 +16,16 @@ The application project's pom.xml has been configured to use the boost plugin an
 
 Run the Maven package command as you normally would when building a Java EE or MicroProfile Application:
 
-* `mvn clean package -Dboost.http.port=9000`
+* `mvn clean package -Dboost_http_port=9000`
 
 From the pom.xml, you can swap out the Apache Derby dependency for a MySQL or DB2 dependency and pass in the JDBC url, username and password. For example:
 
-* `mvn clean package -Dboost.http.port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
+* `mvn clean package -Dboost_http_port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
 
 From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the **boost.runtimes** dependency:
 
     <dependency>
-        <groupId>boost.runtimes</groupId>
+        <groupId>org.microshed.boost.runtimes</groupId>
         <artifactId>tomee</artifactId>
         <!-- Replaced 'openliberty' with 'tomee'
             <artifactId>openliberty</artifactId>

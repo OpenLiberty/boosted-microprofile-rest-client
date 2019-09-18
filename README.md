@@ -20,7 +20,7 @@ Run the Maven package command as you normally would when building a Java EE or M
 
 From the pom.xml, you can swap out the Apache Derby dependency for a MySQL or DB2 dependency and pass in the JDBC url, username and password. For example:
 
-* `mvn clean package -Dboost_http_port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost.db.user=mysql -Dboost.db.password=mysql`
+* `mvn clean package -Dboost_http_port=9000 -Dboost.db.url=jdbc:mysql://localhost:3306/testdb -Dboost_db_user=mysql -Dboost_db_password=mysql`
 
 From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the **boost.runtimes** dependency:
 

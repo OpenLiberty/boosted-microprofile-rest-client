@@ -22,7 +22,7 @@ From the pom.xml, you can swap out the Apache Derby dependency for a MySQL or DB
 
 * `mvn clean package -Dboost_http_port=9000 -Dboost_db_url=jdbc:mysql://localhost:3306/testdb -Dboost_db_user=mysql -Dboost_db_password=mysql`
 
-From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the **boost.runtimes** dependency:
+From the pom.xml, you can also swap out the Open Liberty runtime for a TomEE runtime by changing the artifact id of the **org.microshed.boost.runtimes** dependency:
 
     <dependency>
         <groupId>org.microshed.boost.runtimes</groupId>
